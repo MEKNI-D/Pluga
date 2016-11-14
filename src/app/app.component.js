@@ -18,21 +18,27 @@ let AppComponent = class AppComponent {
         this.getWidgets();
     }
     getWidgets() {
-        this._widgetService.getAllWidgets().subscribe(data => this.widgets = data, error => this.errorString = error, () => console.log('donee'));
-        /*this._widgetService.getAllWidgets()
-            .subscribe(
-                data => this.widgets = data),
-            error => alert(error),
-            () =>console.log("finishedddd");*/
+        this._widgetService.getAllWidgets().subscribe(data => this.widgets = JSON.parse(JSON.stringify(data)), error => this.errorString = error, () => console.log('donee'));
     }
     ;
+    getUser(id) {
+        this._widgetService.getUserByID(id)
+            .subscribe(data => this.widget = data, error => this.errorString = "user " + " is invalid.");
+    }
 };
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: '<ul> Hello World' +
-            '<li *ngFor="#w of widgets">{{w}}</li>hihi{{widgets}}   </ul> ',
-        providers: [widget_service_1.WidgetService]
+        template: '<ul> Users list' +
+            '<li *ngFor="let w of widgets">' +
+            '<div>' +
+            '<img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png">' +
+            '  <p>{{w.email}}</p>' +
+            '</div>' +
+            '</li></ul>' /*+
+        '<router-outlet></router-outlet>'*/,
+        providers: [widget_service_1.WidgetService],
+        styles: ['li { font-weight: normal; font-family: "Comic Sans MS"} ul{list-style: none} img {width: 50px; height: 50px; margin-right: 50px;} p{width : 150px;float: right; margin-right:1000px;} div {margin-bottom: 20px;}']
     }), 
     __metadata('design:paramtypes', [widget_service_1.WidgetService])
 ], AppComponent);

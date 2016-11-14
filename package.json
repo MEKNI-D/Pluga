@@ -15,7 +15,7 @@
     "@angular/platform-browser": "2.0.0-rc.5",
     "@angular/platform-browser-dynamic": "2.0.0-rc.5",
     "@angular/forms": "2.0.0-rc.6",
-    "@angular/router":  "3.0.0-rc.2",
+    "@angular/router": "3.0.0-rc.2",
     "core-js": "^2.4.1",
     "es6-shim": "^0.35.1",
     "reflect-metadata": "^0.1.8",
@@ -24,6 +24,9 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^2.24.1",
+    "node-sass": "^3.12.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.0.2",
     "ts-loader": "^1.2.0",
     "typescript": "^1.8.10",
     "typings": "^1.0.4",

@@ -11,7 +11,7 @@ export class WidgetService{
     constructor(private http: Http){
             this.http = http
     }
-    private endpoint_url = "https://demo4475807.mockable.io/templates_by_apps";
+    private endpoint_url = "https://sherringtonbackend.herokuapp.com/users";
     getAllWidgets():any{
 
         return this.http
@@ -21,6 +21,12 @@ export class WidgetService{
       /* return this.http.get('http://date.jsontest.com').map(res=>res.json()
            .catch(this.handleError));*/
     }
+
+    getUserByID (id:String){
+        return this.http.get(this.endpoint_url +'/' +id).map(res => res.json());
+    }
+
+
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');

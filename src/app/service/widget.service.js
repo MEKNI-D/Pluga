@@ -15,7 +15,7 @@ require('rxjs/Rx');
 let WidgetService = class WidgetService {
     constructor(http) {
         this.http = http;
-        this.endpoint_url = "https://demo4475807.mockable.io/templates_by_apps";
+        this.endpoint_url = "https://sherringtonbackend.herokuapp.com/users";
         this.http = http;
     }
     getAllWidgets() {
@@ -25,6 +25,9 @@ let WidgetService = class WidgetService {
             .catch(this.handleError);
         /* return this.http.get('http://date.jsontest.com').map(res=>res.json()
              .catch(this.handleError));*/
+    }
+    getUserByID(id) {
+        return this.http.get(this.endpoint_url + '/' + id).map(res => res.json());
     }
     handleError(error) {
         console.error(error);

@@ -9,7 +9,7 @@ module.exports={
     },
     module:{
         loader:[
-            {test:/\.ts$/, loader:'ts'}
+            {test:/\.ts\.scss$/,loaders : ['ts' ,'raw-loader', 'sass-loader']}
         ]
     },
     resolve :{
